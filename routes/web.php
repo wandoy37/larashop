@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    // Dashboard
+    Route::get('/dashboard', function () {
+        return view('admin.index', [
+            'title' => 'Dashboard - Home'
+        ]);
+    });
+    // Products
+    Route::get('/products', function () {
+        return view('admin.products', [
+            'title' => 'Dashboard - Products'
+        ]);
+    });
+});
