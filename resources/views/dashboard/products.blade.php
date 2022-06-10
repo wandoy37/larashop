@@ -1,7 +1,6 @@
-@extends('admin.layouts.app')
+@extends('dashboard.layouts.app')
 
-@section('main')
-
+@section('content')
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
@@ -9,9 +8,10 @@
         </div>
 
         <div class="row">
+            <div class="col-lg-12">
+                <livewire:product.index />
+            </div>
         </div>
-
-        <div class="page-category">Inner page content goes here</div>
     </div>
 </div>
 

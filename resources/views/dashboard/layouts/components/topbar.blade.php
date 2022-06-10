@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                 <li class="nav-item dropdown hidden-caret">
-                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="/" aria-expanded="false">
                         <div class="avatar-sm">
                             <img src="{{ asset('atlantis/img/profile.jpg') }}" alt="..." class="avatar-img rounded-circle">
                         </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Product\Index;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,14 +22,15 @@ Route::get('/', function () {
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     // Dashboard
     Route::get('/dashboard', function () {
-        return view('admin.index', [
-            'title' => 'Dashboard - Home'
+        return view('dashboard.index', [
+            'title' => 'Dashboard - Home',
         ]);
     });
-    // Products
+
+    // Route::get('/products', \App\Http\Livewire\Product\Index::class, 'render');
     Route::get('/products', function () {
-        return view('admin.products', [
-            'title' => 'Dashboard - Products'
+        return view('dashboard.products', [
+            'title' => 'Dashboard - Products',
         ]);
     });
 });

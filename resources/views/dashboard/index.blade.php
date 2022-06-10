@@ -1,7 +1,6 @@
-@extends('admin.layouts.app')
+@extends('dashboard.layouts.app')
 
-@section('main')
-
+@section('content')
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
@@ -11,7 +10,9 @@
         <div class="row">
         </div>
 
-        <div class="page-category">Inner page content goes here</div>
+        <div class="page-category">
+            tes
+        </div>
     </div>
 </div>
 

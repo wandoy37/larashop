@@ -24,18 +24,21 @@
 
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="{{ asset('atlantis/css/demo.css') }}">
+	@livewireStyles
 </head>
 <body>
 	<div class="wrapper">
-		@include('admin.layouts.components.topbar')
+		@include('dashboard.layouts.components.topbar')
 
 		<!-- Sidebar -->
-		@include('admin.layouts.components.sidebar')
+		@include('dashboard.layouts.components.sidebar')
 		<!-- End Sidebar -->
 
 		<div class="main-panel">
             
-			@yield('main')
+			{{-- @yield('content') --}}
+			@yield('content')
+			
 
 			<footer class="footer">
 				<div class="container-fluid">
@@ -149,5 +152,6 @@
 			height: 300
 		});
 	</script>
+	@livewireScripts
 </body>
 </html>
