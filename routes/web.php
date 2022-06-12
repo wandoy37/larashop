@@ -27,10 +27,15 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
         ]);
     });
 
-    // Route::get('/products', \App\Http\Livewire\Product\Index::class, 'render');
     Route::get('/products', function () {
         return view('dashboard.products', [
             'title' => 'Dashboard - Products',
+        ]);
+    });
+
+    Route::get('/products/create', function () {
+        return view('dashboard.create_product', [
+            'title' => 'Dashboard - Create Product'
         ]);
     });
 });

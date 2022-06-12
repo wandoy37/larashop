@@ -68,6 +68,11 @@
 			</footer>
 		</div>
 	</div>
+
+
+	{{-- Livewire --}}
+	@livewireScripts
+
 	<!--   Core JS Files   -->
 	<script src="{{ asset('atlantis/js/core/jquery.3.2.1.min.js') }}"></script>
 	<script src="{{ asset('atlantis/js/core/popper.min.js') }}"></script>
@@ -152,6 +157,13 @@
 			height: 300
 		});
 	</script>
-	@livewireScripts
+
+	<script>
+		window.setTimeout(function() {
+			$(".alert").fadeTo(300, 0).slideUp(300, function() {
+				$(this).remove();
+			});
+		}, 3000);
+	</script>
 </body>
 </html>

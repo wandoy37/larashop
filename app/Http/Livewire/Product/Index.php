@@ -12,28 +12,37 @@ class Index extends Component
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';
-
-    public $paginate = 10;
-    public $search;
-
-    protected $UpdateQueryString = [
-        ['search'],
+    protected $listeners = [
+        'formClose' => 'formCloseHandler',
+        'productStored' => 'productStoredHandler'
     ];
 
-    public function mount()
-    {
-        $this->search = request()->query('search', $this->search);
-    }
+    // Properti
+    public $search = '';
+    public $paginate = 10;
+    public $formVisible = '';
 
     public function render()
     {
 
         return view('livewire.product.index', [
-            'products' => $this->search === null ?
-                Product::latest()->paginate($this->paginate) :
-                Product::latest()->where('title', 'like', '%' . $this->search . '%')->paginate($this->paginate),
-            'title' => ('Products'),
-            'slot' => '<livewire:product.index />'
+            'products' => Product::orderBy('id', 'desc')->where('title', 'LIKE', '%' . $this->search . '%')->paginate($this->paginate)
         ]);
+    }
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function formCloseHandler()
+    {
+        $this->formVisible = false;
+    }
+
+    public function productStoredHandler()
+    {
+        $this->formVisible = false;
+        session()->flash('message', 'Your product was stored');
     }
 }
