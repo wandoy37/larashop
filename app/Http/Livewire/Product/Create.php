@@ -37,15 +37,14 @@ class Create extends Component
                 . '-'
                 . uniqid()
                 . '.' . $this->image->getClientOriginalExtension();
-
-            $this->image->storeAs('public', $imageName, 'local');
+            $this->image->storeAs('public', $imageName);
         }
 
         Product::create([
             'title' => $this->title,
             'description' => $this->description,
             'price' => $this->price,
-            'image' => $this->image
+            'image' => $this->image->store('image-product')
         ]);
 
         $this->emit('productStored');
